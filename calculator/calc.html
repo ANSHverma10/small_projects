@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+
+        }
+        .container{
+            width: 100%;
+            height: 100vh;
+            background: #d4d4d4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        .calculator{
+            background: #1d1d1d;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5), 0px 0px 50px rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+        .calculator form input{
+            border: 0;
+            outline: 0;
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1),5px 5px 15px rgba(0, 0, 0, 0.2) ;
+            background: transparent;
+            font-size: 20px;
+            color: #fff;
+            cursor: pointer;
+            margin: 10px;
+        }
+        form .display{
+            display: flex;
+            justify-content: flex-end;
+            margin: 20px 0;
+
+        }
+        form .display input{
+            text-align: right;
+            flex :1;
+            font-size: 45px;
+            box-shadow: none;
+
+        }
+        form input.equal{
+            width: 145px;
+        }
+        form input .operator{
+            color: #33ffd8;
+        }
+        .circle{
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            gap: 10px;
+            animation: 2s ease ease-in infinite alternate;
+
+        }
+        .circle-1{
+            content: '';
+            border-radius: 5% 50%;
+            width: 100px;
+            height: 100px;
+            background-image: linear-gradient( rgba(255, 252, 252),  black);
+           /* animation: slowly .8s ease-in-out 0s alternate infinite none running;*/
+            position: absolute;
+            left: 26.5%;
+            top: 17%;
+            filter: brightness(1.1);            
+            animation-name: slowly;
+
+        }
+        .circle-2{
+            content: '';
+            border-radius: 5% 50%;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 65%;
+            top: 74%;
+            z-index: 0;
+            background-image: linear-gradient( rgba(255, 252, 252),  black);
+            filter: brightness(1.1); 
+        }
+    </style>
+    <title>Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <div class="circles">
+            <div class="circle-1"></div>
+            <div class="circle-2"></div>
+        </div>
+        <div class="calculator">
+            <form>
+                <div class="display">
+                    <input type="text" name= "display">
+                </div>
+                <div>
+                    <input type="button" value ="AC" onclick="display.value = '' " class="operator">
+                    <input type="button" value ="DE" onclick="display.value = display.value.tostring().slice(0, -1)" class="operator">
+                    <input type="button" value ="." onclick="display.value += '.' " class="operator">
+                    <input type="button" value ="/" onclick="display.value += '/' " class="operator">
+                </div>
+                 <div>
+                    <input type="button" value ="7" onclick="display.value += '7' ">
+                    <input type="button" value ="8" onclick="display.value += '8' ">
+                    <input type="button" value ="9" onclick="display.value += '9' ">
+                    <input type="button" value ="*" onclick="display.value += '*' "class="operator">
+                </div>
+                <div>
+                    <input type="button" value ="4"onclick="display.value += '4' ">
+                    <input type="button" value ="5"onclick="display.value += '5' ">
+                    <input type="button" value ="6"onclick="display.value += '6' ">
+                    <input type="button" value ="-"onclick="display.value += '-' "class="operator">
+                </div>
+                <div>
+                    <input type="button" value ="1"onclick="display.value += '1' ">
+                    <input type="button" value ="2"onclick="display.value += '2' ">
+                    <input type="button" value ="3"onclick="display.value += '3' ">
+                    <input type="button" value ="+"onclick="display.value += '+' "class="operator">
+                </div>
+                <div>
+                    <input type="button" value ="00" onclick="display.value += '00' ">
+                    <input type="button" value ="0" onclick="display.value += '0' ">
+                    <input type="button" value ="=" onclick="display.value = eval(display.value)" class="equal"class="operator">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
